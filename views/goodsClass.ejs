@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=title%></title>
+    <meta name="keywords" content="关键字,关键字" />
+    <meta name="description" content="描述" />
+    <link rel="stylesheet" type="text/css" href="css/fontIcon.css"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <link rel="stylesheet" href="swiper/swiper-bundle.min.css">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, telephone=no" name="viewport">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <script src="swiper/swiper-bundle.min.js"></script>
+    <script src="js/jquery-1.9.1.js"></script>
+</head>
+
+<body>
+<div id="page">
+    <%- include('components/Header', {header: title}); %>
+    <!-- 开始 -->
+    <div class="goodsClassHead">
+        <div id="search">
+            <span class="iconfont iconsousuo1"></span>
+            <form action=""><input type="search" placeholder="搜索店内宝贝"></form>
+        </div>
+        <h1>全部商品<span>去查看<i class="iconfont iconarrow-right"></i></span></h1>
+    </div>
+    <div class="goodsClass">
+        <div class="goodsClassNav">
+            <ul>
+                <% lists.forEach(function(item){%>
+                    <li><%= item.cat_name %></li>
+                <% }) %>
+            </ul>
+        </div>
+        <div class="goodsClassContent">
+            <% lists.forEach(function(item){%>
+                <div class="goodsClassBox">
+                    <a href="http://wshop.wm18.com/goodsList?cat_id=<%= item.cat_id %>"><img src="<%= item.cat_image %>"></a>
+                    <% item.rows.forEach(function(v,index){%>
+                        <h2>
+                            <% if (index == 0) { %>
+                                为你推荐
+                            <% } else { %>
+                                品牌推荐
+                            <% } %>
+                        </h2>
+                        <ul>
+                            <% v.rows.forEach(function(g){%>
+                                <li>
+                                    <a href="http://wshop.wm18.com/goodsList?cat_id=<%= g.id %>">
+                                        <img src="<%= g.pic2 %>"><p><%= g.cat_name %></p>
+                                    </a>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    <% }) %>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <%- include('components/Footer', {index: 1}); %>
+</div>
+<script>
+/* 切换 */
+let index = 0;
+function tab(i){
+    $('.goodsClassNav li').removeClass('this')
+    $('.goodsClassNav li').eq(i).addClass('this');
+    $('.goodsClassContent .goodsClassBox').hide();
+    $('.goodsClassContent .goodsClassBox').eq(i).show();
+}
+$('.goodsClassNav li').click(function(){
+    index = $(this).index();
+    tab(index)
+})
+tab(index)
+
+/* 获取高度 */
+function getBodyHeight(){
+    //document.body.clientHeight - (this.isweixin()?138:178);
+    console.log(window.innerHeight)
+    $('.goodsClassNav').height(window.innerHeight - 178)
+}
+window.onresize = () => {
+	getBodyHeight();
+}
+getBodyHeight();
+</script>
+</body>

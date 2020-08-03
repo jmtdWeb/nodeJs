@@ -1,0 +1,64 @@
+*{padding: 0; border: 0; margin: 0; list-style: none; font-family: Arial,'Microsoft YaHei'; font-size: 12px;}
+li{list-style:none;}
+a {color:#878787; text-decoration:none;}
+a:hover{color:#878787; text-decoration:none;}
+.clear{clear:both; height:0px; overflow:hidden;}
+.pointer{pointer-events:none;/*穿透*/}
+
+#page{width: 100%; height: 100%; max-width: 750px; min-width: 320px; margin: 0 auto;}
+
+.page .pageBanner ul{overflow: hidden;}
+.page .pageBanner img{display: block; width: 100%;}
+.page .pageBanner.pageBanner_2 ul li{width: 50%; float: left;}
+.page .pageBanner.pageBanner_3 ul li{width: 33.33%; float: left;}
+.page .pageBanner.pageBanner_5 ul li{width: 50%; float: left;}
+.page .pageBanner.pageBanner_7 .swiper-pagination-bullet-active{background: #ff1677 !important;}
+.page .pageBanner.pageBanner_9 ul li{width: 20%; float: left;}
+
+/* 头部 */
+header{background: #ededed; height: 40px; line-height: 40px; position: relative; color: #181818; z-index: 10000;}
+header h2{font-size: 16px; text-align: center; font-weight: initial;}
+header .headerBack {height: 20px; line-height: 20px; font-size: 20px; position: absolute; left: 15px; top: 10px; cursor: pointer;}
+
+/* 搜索 */
+#search{background: #fff; height: 32px; border-radius: 16px; padding: 0 28px 0 33px; position: relative;}
+#search span{display: block; width: 16px; height: 16px; font-size: 16px; color: #999; position: absolute; top: 8px; left: 10px;}
+#search input{display: block; box-sizing: border-box; height: 32px; width: 100%; background: none; font-size: 12px;}
+
+/* 商品分类 */
+.goodsClassHead{background: #f4f4f4; padding: 8px 12px; position: relative;}
+.goodsClassHead h1{position: relative; font-size: 14px; height: 14px; line-height: 14px; padding-top: 16px; color: #333;}
+.goodsClassHead h1 span{position: absolute; right: 0; bottom: 0; font-weight: initial; color: #ff1677;}
+.goodsClass{overflow: hidden; font-size: 13px;}
+.goodsClass img{display: block; width: 100%; border-radius: 6px;}
+.goodsClass .goodsClassNav{width: 80px; height: 100%; background: #f4f4f4; float: left;}
+.goodsClass .goodsClassNav li{padding: 10px 0; line-height: 24px; text-align: center;}
+.goodsClass .goodsClassNav li.this{background: #fff;}
+.goodsClass .goodsClassContent{padding-left: 80px;}
+.goodsClass .goodsClassBox{padding: 15px 15px 55px 15px; display: none;}
+.goodsClass .goodsClassBox h2{line-height: 27px; padding: 13px 0 0 2px; font-weight: initial; color: #000;}
+.goodsClass .goodsClassBox ul{overflow: hidden; padding-top: 15px;}
+.goodsClass .goodsClassBox ul li{width: 33.33%; float: left; padding: 0 20px 10px 5px; text-align: center; font-size: 12px; box-sizing: border-box;}
+.goodsClass .goodsClassBox ul li a{display: block;}
+.goodsClass .goodsClassBox ul li p{line-height: 30px; font-size: 12px; color: #666;}
+
+/* 尾巴 */
+.mecoxlaneFooterHeight {height: 40px;}
+footer {position: fixed; width: 100%; left: 0; bottom: 0; background: #f9f9f9; height: 60px; padding: 9px 0 7px 0; z-index: 99999; box-sizing: border-box;}
+footer ul {height: 36px;}
+footer ul li {width: 20%; float: left; text-align: center; color: #878787;}
+footer ul li a {display: block; margin: 0 5px; color: #878787;}
+footer ul li.this a {color: #ff1677;}
+footer ul li div {height: 20px;}
+footer ul li span {display: block; font-size: 20px !important; position: relative; width: 24px;height: 28px; margin: 0 auto;}
+footer li span i {display: none;}
+footer ul li span.iconshouye {font-size: 24px !important;}
+footer ul li span.iconuser-line {transform: translateY(-3px);}
+footer ul li span.iconruhezhuanqian {font-size: 22px !important;}
+footer ul li span.icongouwuche-5 {font-size: 22px !important;}
+footer ul li span.icongouwuche-5 i {display: block; background: #ff1677; position: absolute; right: -5px; top: -3px; width: 14px; height: 14px; line-height: 14px; text-align: center; border-radius: 50%; font-size: 12px; color: #fff;}
+footer ul li span.icongouwuche-5 i b {display: block; transform: scale(0.7); font-size: 12px; font-weight: normal;}
+footer ul li .iconfontY {transform: translateY(-2px);}
+footer ul li p {padding-top: 3px;}
+footer ul li span.iconpengyouquan1 {font-size: 22px;}
+  

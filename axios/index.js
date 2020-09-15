@@ -1,6 +1,8 @@
 const axios = require('axios');
 const md5 = require('md5-node')
+
 /**
+ * 接口加密用到了此方法
  * json对象转化为地址栏参数  type为true表示加密字符不需要转码   false时需要转码用于微信浏览器识别
 */
 function jsonParams(data,type){
@@ -17,7 +19,9 @@ function jsonParams(data,type){
         return ''
     }
 }
+
 /**
+ * 接口加密用到了此方法
  * 处理对象排序
 */
 function objKeySort(obj,type) {

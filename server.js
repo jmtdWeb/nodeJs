@@ -15,7 +15,7 @@ const fs = require('fs')
  * 监听本地文件发生变动
  */
 const filePath = './html/index.html'
-console.log(`正在监听 ${filePath}`);
+console.log(`正在监1听 ${filePath}`);
 fs.watchFile(filePath, (cur, prv) => {
     if (filePath) {
         // 打印出修改时间
@@ -23,7 +23,7 @@ fs.watchFile(filePath, (cur, prv) => {
         console.log(`prv.mtime>>${prv.mtime.toLocaleString()}`)
         // 根据修改时间判断做下区分，以分辨是否更改
         if (cur.mtime != prv.mtime){
-            console.log(`${filePath}文件发生更新`)
+            console.log(`${filePath}文件发生更新！`)
         }
     }
 })

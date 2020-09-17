@@ -7,7 +7,11 @@ class Connect {
             password: 'Aa111111',
             database: 'sys'
         });
-        this.connection.connect();
+        this.connection.connect((err)=>{
+            if(err){
+                console.log(`mysql连接失败: ${err}!`);
+            }
+        });
     }
     /**
      * 读取数据

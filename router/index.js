@@ -145,29 +145,6 @@ app.get('/sql',async(request,response)=>{
         getSqlData = await sql.delete('websites',{id:11}).then(res => {
             return res;
         });
-    }else if(params.name == 'api'){
-        /**
-         * 获取数据
-        */
-        getSqlData = await sql.select(['*'],'websites').then(res => {
-            if(res.length == 0){
-                console.log('没有数据')
-            }
-            /**
-             * 配置 cros 解决跨域问题
-            */
-            //设置允许跨域的域名，*代表允许任意域名跨域
-            response.header("Access-Control-Allow-Origin","*");
-            //允许的header类型
-            response.header("Access-Control-Allow-Headers","content-type");
-            //跨域允许的请求方式 
-            response.header("Access-Control-Allow-Methods","DELETE,PUT,POST,GET,OPTIONS");
-            /**
-             * 打印输出结果
-            */
-           //response.render('haha',{'news':['阿斯顿撒','萨达','提货费']});
-            response.send(res);
-        });
     }
     
     /**
@@ -190,5 +167,47 @@ app.get('/sql',async(request,response)=>{
      * 3生成名字
     */
     sh.sethtml('./views/sql.ejs', thisData, 'index');
+});
+
+/**
+ * 接口
+ * 根据不同请求方式使用不同语法
+ * app.get
+ * app.post
+*/
+app.get('/api',async(request,response)=>{
+    /**
+     * 设置允许跨域的域名，*代表允许任意域名跨域
+    */
+    response.header("Access-Control-Allow-Origin","*");
+    /**
+    * 允许的header类型
+    */
+    response.header("Access-Control-Allow-Headers","content-type");
+    /**
+    * 跨域允许的请求方式
+    */ 
+    response.header("Access-Control-Allow-Methods","DELETE,PUT,POST,GET,OPTIONS");
+    /**
+     * 获取地址栏参数
+    */
+    let params = url.parse(request.url, true).query;
+
+    /**
+     * 操作
+    */
+    await sql.select(['*'],'websites',{id:params.id}).then(res => {
+        if(res.length == 0){
+            console.log('没有数据')
+        }
+        /**
+         * 输出数据信息
+        */
+        response.send(res[0]);
+        /**
+         * 为避免继续其他操作造成错误，尽量做结束操作
+        */
+        return false;
+    });
 });
 module.exports = app;

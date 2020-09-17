@@ -4,6 +4,7 @@
  * 可以用它来管理你的node进程
  * 并查看node进程的状态
  * 当然也支持性能监控/进程守护/负载均衡等功能
+ * node server.js
 */
 
 const express = require('express');

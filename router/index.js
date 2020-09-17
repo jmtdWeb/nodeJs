@@ -7,7 +7,7 @@ const url     = require('url');
 const setHtml = require('../utils/setHtml');
 
 api = new axios();
-sh = new setHtml();
+sh  = new setHtml();
 sql = new mysql();
 
 app = express();
@@ -151,7 +151,7 @@ app.get('/sql',async(request,response)=>{
      * 数据
     */
     let thisData = {
-        title:'首页', 
+        title:'获取数据库数据', 
         lists:getSqlData?getSqlData:[]
     }
 
@@ -192,18 +192,18 @@ app.get('/api',async(request,response)=>{
      * 获取地址栏参数
     */
     let params = url.parse(request.url, true).query;
+    let id = params.id
 
     /**
      * 操作
     */
-    await sql.select(['*'],'websites',{id:params.id}).then(res => {
-        if(res.length == 0){
-            console.log('没有数据')
-        }
+    await sql.select(['*'],'websites',{'id':id}).then(res => {
         /**
          * 输出数据信息
         */
-        response.send(res[0]);
+        let thisData = res[0] ? res[0] : [];
+        //response.send(thisData);
+        response.json(thisData);
         /**
          * 为避免继续其他操作造成错误，尽量做结束操作
         */

@@ -70,10 +70,10 @@ function axiosApi() {
                 'Accept-Language': 'zh-cn'
             }
         }).then((res) => {
-            console.log(res.data.data)
+            //console.log(res.data.data)
             return res
         }).catch(function (error) {
-            console.log(error)
+            //console.log(error)
         })
     } 
 };

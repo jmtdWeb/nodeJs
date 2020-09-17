@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>首页</title>
+    <title><%=title%></title>
     <meta name="keywords" content="关键字,关键字" />
     <meta name="description" content="描述" />
     <link rel="stylesheet" type="text/css" href="css/base.css"/>
@@ -17,6 +17,8 @@
 <body>
 <div id="sql">
     <!-- 开始 -->
-    
+    <% lists.forEach(function(item){%>
+        <div><%= item.id %>-<%= item.name %></div>
+    <% }) %>
 </div>
 </body>

@@ -23,8 +23,8 @@ app.use(express.static('public'));
 
 
 /**
- * 调用路由，进行页面渲染
- * https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
+ * 调用路由
+ * 进行页面渲染
  * 首页
 */
 app.get('/',async(request,response)=>{
@@ -181,28 +181,31 @@ app.get('/api',async(request,response)=>{
     */
     response.header("Access-Control-Allow-Origin","*");
     /**
-    * 允许的header类型
+     * 允许的header类型
     */
     response.header("Access-Control-Allow-Headers","content-type");
     /**
-    * 跨域允许的请求方式
+     * 跨域允许的请求方式
     */ 
     response.header("Access-Control-Allow-Methods","DELETE,PUT,POST,GET,OPTIONS");
     /**
-     * 获取地址栏参数
+     * 获取参数
     */
     let params = url.parse(request.url, true).query;
-    let id = params.id
+    let id = 4
+    
 
     /**
      * 操作
+     * response.send(thisData)
+     * response.json(thisData)
+     * 两个都可以
     */
     await sql.select(['*'],'websites',{'id':id}).then(res => {
         /**
          * 输出数据信息
         */
         let thisData = res[0] ? res[0] : [];
-        //response.send(thisData);
         response.json(thisData);
         /**
          * 为避免继续其他操作造成错误，尽量做结束操作

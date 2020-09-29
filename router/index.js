@@ -52,7 +52,7 @@ app.get('/',async(request,response)=>{
     }
 
     /**
-     * 调用渲染模板
+     * 调用渲染模板index.ejs
     */
     response.render('index', thisData);
 
@@ -87,7 +87,7 @@ app.get('/goodsClass',async(request,response)=>{
     }
 
     /**
-     * 调用渲染模板
+     * 调用渲染模板goodsClass.ejs
     */
     response.render('goodsClass', thisData);
 
@@ -156,7 +156,7 @@ app.get('/sql',async(request,response)=>{
     }
 
     /**
-     * 调用渲染模板
+     * 调用渲染模板sql.ejs
     */
     response.render('sql', thisData);
 
@@ -192,7 +192,7 @@ app.get('/api',async(request,response)=>{
      * 获取参数
     */
     let params = url.parse(request.url, true).query;
-    let id = 4
+    let id = params.id
     
 
     /**

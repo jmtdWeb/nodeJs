@@ -2,7 +2,7 @@ const ejs     = require('ejs');
 const fs      = require("fs");
 
 /**
- * 请求接口
+ * 结合ejs模板生成html
 */
 function html() {
     /**
